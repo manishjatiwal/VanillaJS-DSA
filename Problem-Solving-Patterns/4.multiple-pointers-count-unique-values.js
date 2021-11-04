@@ -3,7 +3,7 @@
  * and counts the unique values in the array.
  */
 
-function countUniqueValues(array) {
+function countUniqueValuesOld(array) {
   const length = array.length
   if (length < 2) {
     return length
