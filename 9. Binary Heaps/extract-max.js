@@ -4,20 +4,40 @@
  * doing that until correct place is found
  */
 function extractMax() {
-  const length = this.values.length
-  this.values[0] = this.values[length - 1]
+  let index = 0
+  let length = this.values.length
+  this.values[index] = this.values[length - 1]
   this.values.pop()
-  let i = 0
-  while (i < length) {
-    let index = 2 * i + 1
-    if (this.values[i] > this.values[index]) break
-    let temp = this.values[i]
-    if (this.values[index] < this.values[index + 1]) {
-      index += 1
+  length = this.values.length
+  while (index < length) {
+    const parent = this.values[index]
+    let swap = null
+    let leftChildIndex = 2 * index + 1
+    let rightChildIndex = 2 * index + 2
+    let leftChild, rightChild
+
+    if (leftChildIndex < length) {
+      leftChild = this.values[leftChild]
+      if (leftChild > parent) {
+        swap = leftChildIndex
+      }
     }
-    this.values[i] = this.values[index]
-    this.values[index] = temp
-    i = index
+
+    if (rightChildIndex < length) {
+      rightChild = this.values[rightChildIndex]
+      if (
+        (swap === null && rightChild > parent) ||
+        (swap !== null && rightChild > leftChild)
+      ) {
+        swap = rightChildIndex
+      }
+    }
+
+    if (swap === null) break
+
+    this.values[index] = this.values[swap]
+    this.values[swap] = parent
+    index = swap
   }
 }
 

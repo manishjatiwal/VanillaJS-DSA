@@ -1,5 +1,5 @@
 const insert = require('./insert')
-
+const extractMax = require('./extract-max')
 /**************************************\
  *  Rules to Remember                  *
  *  Child is smaller than parent       *
@@ -9,15 +9,18 @@ const insert = require('./insert')
 
 class BinaryHeaps {
   constructor() {
-    this.values = [41, 39, 33, 18, 27, 12]
+    this.values = [10, 5, 7, 6]
   }
   insert(value) {
     insert.call(this, value)
+  }
+  extractMax() {
+    extractMax.call(this)
   }
 }
 
 const heap = new BinaryHeaps()
 
 console.log(heap.values)
-heap.insert(55)
+heap.extractMax()
 console.log(heap.values)
