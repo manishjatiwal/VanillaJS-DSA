@@ -1,3 +1,8 @@
+// Complexity
+// Best O(n^2)
+// Average O(n^2)
+// Worst O(n^2)
+
 function swap(arr, idx1, idx2) {
   const temp = arr[idx1]
   arr[idx1] = arr[idx2]
