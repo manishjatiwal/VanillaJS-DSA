@@ -36,8 +36,8 @@ function insert(value) {
   } else {
     let currentNode = this.root
     while (true) {
-      if (node.value === value) {
-        node.count += 1
+      if (currentNode.value === value) {
+        currentNode.count += 1
         return
       }
       if (currentNode.value > value) {
